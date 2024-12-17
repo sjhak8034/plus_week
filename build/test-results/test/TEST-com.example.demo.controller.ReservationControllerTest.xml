@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.demo.controller.ReservationControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-12-16T02:33:16" hostname="JEONGHAK" time="0.298">
+<testsuite name="com.example.demo.controller.ReservationControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-12-17T06:47:54" hostname="JEONGHAK" time="0.259">
   <properties/>
-  <testcase name="updateReservation()" classname="com.example.demo.controller.ReservationControllerTest" time="0.298"/>
-  <system-out><![CDATA[11:33:13.962 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.demo.controller.ReservationControllerTest]: ReservationControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-11:33:14.133 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.controller.ReservationControllerTest
+  <testcase name="updateReservation()" classname="com.example.demo.controller.ReservationControllerTest" time="0.259"/>
+  <system-out><![CDATA[15:47:52.077 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.demo.controller.ReservationControllerTest]: ReservationControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:47:52.239 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.controller.ReservationControllerTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,12 +14,12 @@
 
  :: Spring Boot ::                (v3.4.0)
 
-2024-12-16T11:33:15.225+09:00  INFO 30224 --- [demo] [    Test worker] c.e.d.c.ReservationControllerTest        : Starting ReservationControllerTest using Java 17.0.13 with PID 30224 (started by thdwj in C:\Users\thdwj\IdeaProjects\plus_week)
-2024-12-16T11:33:15.227+09:00  INFO 30224 --- [demo] [    Test worker] c.e.d.c.ReservationControllerTest        : No active profile set, falling back to 1 default profile: "default"
-2024-12-16T11:33:16.576+09:00  INFO 30224 --- [demo] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2024-12-16T11:33:16.577+09:00  INFO 30224 --- [demo] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2024-12-16T11:33:16.580+09:00  INFO 30224 --- [demo] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2024-12-16T11:33:16.617+09:00  INFO 30224 --- [demo] [    Test worker] c.e.d.c.ReservationControllerTest        : Started ReservationControllerTest in 1.716 seconds (process running for 3.656)
+2024-12-17T15:47:53.326+09:00  INFO 6756 --- [demo] [    Test worker] c.e.d.c.ReservationControllerTest        : Starting ReservationControllerTest using Java 17.0.13 with PID 6756 (started by thdwj in C:\Users\thdwj\IdeaProjects\plus_week)
+2024-12-17T15:47:53.327+09:00  INFO 6756 --- [demo] [    Test worker] c.e.d.c.ReservationControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2024-12-17T15:47:54.595+09:00  INFO 6756 --- [demo] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-12-17T15:47:54.595+09:00  INFO 6756 --- [demo] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-12-17T15:47:54.597+09:00  INFO 6756 --- [demo] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2024-12-17T15:47:54.636+09:00  INFO 6756 --- [demo] [    Test worker] c.e.d.c.ReservationControllerTest        : Started ReservationControllerTest in 1.639 seconds (process running for 3.578)
 
 MockHttpServletRequest:
       HTTP Method = PATCH
@@ -27,7 +27,7 @@ MockHttpServletRequest:
        Parameters = {}
           Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"10"]
              Body = "APPROVED"
-    Session Attrs = {USER_AUTH=com.example.demo.dto.Authentication@2583418c}
+    Session Attrs = {USER_AUTH=com.example.demo.dto.Authentication@3cfd9459}
 
 Handler:
              Type = com.example.demo.controller.ReservationController
