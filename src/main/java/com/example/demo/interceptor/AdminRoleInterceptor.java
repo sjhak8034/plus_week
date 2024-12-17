@@ -12,11 +12,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 @Component
-public class UserRoleInterceptor implements HandlerInterceptor {
+public class AdminRoleInterceptor implements HandlerInterceptor {
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-            throws UnauthorizedException {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws UnauthorizedException {
         HttpSession session = request.getSession(false);
         if (session == null) {
             throw new UnauthorizedException(HttpStatus.UNAUTHORIZED, "세션이 끊어졌습니다.");
@@ -25,10 +24,11 @@ public class UserRoleInterceptor implements HandlerInterceptor {
         Authentication authentication = (Authentication) session.getAttribute(GlobalConstants.USER_AUTH);
         Role role = authentication.getRole();
 
-        if (!Role.USER.equals(role)) {
-            throw new UnauthorizedException(HttpStatus.UNAUTHORIZED, "user 권한이 필요합니다.");
+        if (!Role.ADMIN.equals(role)) {
+            throw new UnauthorizedException(HttpStatus.UNAUTHORIZED, "admin 권한이 필요합니다.");
         }
 
         return true;
     }
+
 }

@@ -1,6 +1,8 @@
 package com.example.demo.repository;
 
+import com.example.demo.dto.ReservationResponseDto;
 import com.example.demo.entity.Reservation;
+import com.example.demo.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ReservationRepository extends JpaRepository<Reservation, Long> {
+public interface ReservationRepository extends JpaRepository<Reservation, Long>, ReservationQueryRepository {
 
     List<Reservation> findByUserIdAndItemId(Long userId, Long itemId);
 
@@ -28,4 +30,10 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
             @Param("startAt") LocalDateTime startAt,
             @Param("endAt") LocalDateTime endAt
     );
+
+    @Query("select r from Reservation r left join fetch r.user u left join fetch r.item i")
+    List<Reservation> findAllReservations();
+
+
+    List<Reservation> user(User user);
 }
