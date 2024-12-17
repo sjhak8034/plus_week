@@ -28,7 +28,6 @@ public class AdminRoleInterceptor implements HandlerInterceptor {
             throw new UnauthorizedException(HttpStatus.UNAUTHORIZED, "admin 권한이 필요합니다.");
         }
 
-
         return true;
     }
 
