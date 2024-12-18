@@ -25,7 +25,7 @@ class ItemTest {
     UserRepository userRepository;
 
     @Test
-    @Rollback(false)
+    @Rollback(true)
     void statusNullTest() throws NoSuchFieldException, IllegalAccessException, InterruptedException, ChangeSetPersister.NotFoundException {
         //given
         String name = "name";

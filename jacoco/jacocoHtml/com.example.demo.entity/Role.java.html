@@ -2,16 +2,16 @@
 
 import lombok.Getter;
 
-<span class="fc" id="L5">@Getter</span>
+<span class="nc" id="L5">@Getter</span>
 public enum Role {
-<span class="fc" id="L7">    USER(&quot;user&quot;),</span>
-<span class="fc" id="L8">    ADMIN(&quot;admin&quot;);</span>
+<span class="nc" id="L7">    USER(&quot;user&quot;),</span>
+<span class="nc" id="L8">    ADMIN(&quot;admin&quot;);</span>
 
     private final String name;
 
-<span class="fc" id="L12">    Role(String name) {</span>
-<span class="fc" id="L13">        this.name = name;</span>
-<span class="fc" id="L14">    }</span>
+<span class="nc" id="L12">    Role(String name) {</span>
+<span class="nc" id="L13">        this.name = name;</span>
+<span class="nc" id="L14">    }</span>
 
     public static Role of(String roleName) {
 <span class="nc bnc" id="L17" title="All 2 branches missed.">        for (Role role : values()) {</span>

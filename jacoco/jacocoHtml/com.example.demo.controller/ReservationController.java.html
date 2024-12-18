@@ -19,9 +19,9 @@ import java.util.List;
 public class ReservationController {
     private final ReservationService reservationService;
 
-<span class="fc" id="L22">    public ReservationController(ReservationService reservationService) {</span>
-<span class="fc" id="L23">        this.reservationService = reservationService;</span>
-<span class="fc" id="L24">    }</span>
+<span class="nc" id="L22">    public ReservationController(ReservationService reservationService) {</span>
+<span class="nc" id="L23">        this.reservationService = reservationService;</span>
+<span class="nc" id="L24">    }</span>
 
     @PostMapping
     public ResponseEntity&lt;ReservationResponseDto&gt; createReservation(@RequestBody ReservationRequestDto reservationRequestDto) {
@@ -34,7 +34,7 @@ public class ReservationController {
 
     @PatchMapping(&quot;/{id}/update-status&quot;)
     public ResponseEntity&lt;UpdateReservationResponseDto&gt; updateReservation(@PathVariable Long id, @RequestBody ReservationStatus status) {
-<span class="fc" id="L37">        return new ResponseEntity&lt;&gt;(reservationService.updateReservationStatus(id, status), HttpStatus.OK);</span>
+<span class="nc" id="L37">        return new ResponseEntity&lt;&gt;(reservationService.updateReservationStatus(id, status), HttpStatus.OK);</span>
     }
 
     @GetMapping
