@@ -40,6 +40,5 @@ out/
 .env
 
 jacoco/
-/jacoco/
-/gradle/
-/.gradle/
+gradle/
+.gradle/
