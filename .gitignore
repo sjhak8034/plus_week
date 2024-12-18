@@ -40,5 +40,5 @@ out/
 .env
 
 jacoco/
-gradle/
-.gradle/
+
+
