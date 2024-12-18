@@ -34,6 +34,9 @@ jobs:
         run: chmod +x ./gradlew
 
       # 4. Gradle 빌드 및 테스트
+      - name: test
+        run:  ./gradlew test -i
+
       - name: Build and Test with Gradle
         run: ./gradlew build
 
