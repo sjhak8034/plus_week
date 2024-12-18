@@ -29,8 +29,8 @@ public class Reservation {
 
     private LocalDateTime endAt;
 
-<span class="nc" id="L32">    @Enumerated(EnumType.STRING)</span>
-    @Column(nullable = false, columnDefinition = &quot;varchar(20) default 'PENDING'&quot;)
+<span class="pc" id="L32">    @Enumerated(EnumType.STRING)</span>
+    @Column(nullable = false)
     private ReservationStatus status = ReservationStatus.PENDING; // PENDING, APPROVED, CANCELED, EXPIRED
 
 <span class="nc" id="L36">    public Reservation(Item item, User user, LocalDateTime startAt, LocalDateTime endAt) {</span>
@@ -40,7 +40,7 @@ public class Reservation {
 <span class="nc" id="L40">        this.endAt = endAt;</span>
 <span class="nc" id="L41">    }</span>
 
-<span class="nc" id="L43">    public Reservation() {}</span>
+<span class="fc" id="L43">    public Reservation() {}</span>
 
     public void updateStatus(ReservationStatus status) {
 <span class="nc" id="L46">        this.status = status;</span>

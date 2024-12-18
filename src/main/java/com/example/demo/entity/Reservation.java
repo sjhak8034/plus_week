@@ -30,7 +30,7 @@ public class Reservation {
     private LocalDateTime endAt;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "varchar(20) default 'PENDING'")
+    @Column(nullable = false)
     private ReservationStatus status = ReservationStatus.PENDING; // PENDING, APPROVED, CANCELED, EXPIRED
 
     public Reservation(Item item, User user, LocalDateTime startAt, LocalDateTime endAt) {

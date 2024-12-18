@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 public class AdminController {
     private final AdminService adminService;
 
-<span class="nc" id="L15">    public AdminController(AdminService adminService) {</span>
-<span class="nc" id="L16">        this.adminService = adminService;</span>
-<span class="nc" id="L17">    }</span>
+<span class="fc" id="L15">    public AdminController(AdminService adminService) {</span>
+<span class="fc" id="L16">        this.adminService = adminService;</span>
+<span class="fc" id="L17">    }</span>
 
     @PostMapping(&quot;/report-users&quot;)
     public ResponseEntity&lt;ReportResponseDto&gt; reportUsers(@RequestBody ReportRequestDto reportRequestDto) {

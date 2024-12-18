@@ -9,6 +9,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Getter
 @DynamicInsert
 @DynamicUpdate
+@Table(name = &quot;users&quot;)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,26 +19,26 @@ public class User {
     private String nickname;
     private String password;
 
-<span class="nc" id="L21">    @Enumerated(EnumType.STRING)</span>
-    @Column(nullable = false, columnDefinition = &quot;varchar(20) default 'NORMAL'&quot;)
+<span class="fc" id="L22">    @Enumerated(EnumType.STRING)</span>
+    @Column(nullable = false)
     private UserStatus status = UserStatus.NORMAL; // NORMAL, BLOCKED
 
-<span class="nc" id="L25">    @Enumerated(value = EnumType.STRING)</span>
-    @Column(nullable = false, columnDefinition = &quot;varchar(20) default 'USER'&quot;)
+<span class="fc" id="L26">    @Enumerated(value = EnumType.STRING)</span>
+    @Column(nullable = false)
     private Role role = Role.USER;
 
-<span class="nc" id="L29">    public User(String role, String email, String nickname, String password) {</span>
-<span class="nc" id="L30">        this.role = Role.of(role);</span>
-<span class="nc" id="L31">        this.email = email;</span>
-<span class="nc" id="L32">        this.nickname = nickname;</span>
-<span class="nc" id="L33">        this.password = password;</span>
-<span class="nc" id="L34">    }</span>
+<span class="fc" id="L30">    public User(String role, String email, String nickname, String password) {</span>
+<span class="fc" id="L31">        this.role = Role.of(role);</span>
+<span class="fc" id="L32">        this.email = email;</span>
+<span class="fc" id="L33">        this.nickname = nickname;</span>
+<span class="fc" id="L34">        this.password = password;</span>
+<span class="fc" id="L35">    }</span>
 
-<span class="nc" id="L36">    public User() {}</span>
+<span class="fc" id="L37">    public User() {}</span>
 
     public void updateStatusToBlocked() {
-<span class="nc" id="L39">        this.status = UserStatus.BLOCKED;</span>
-<span class="nc" id="L40">    }</span>
+<span class="nc" id="L40">        this.status = UserStatus.BLOCKED;</span>
+<span class="nc" id="L41">    }</span>
 
 
 }

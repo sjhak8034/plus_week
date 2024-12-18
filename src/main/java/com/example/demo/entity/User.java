@@ -9,6 +9,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Getter
 @DynamicInsert
 @DynamicUpdate
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +20,11 @@ public class User {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "varchar(20) default 'NORMAL'")
+    @Column(nullable = false)
     private UserStatus status = UserStatus.NORMAL; // NORMAL, BLOCKED
 
     @Enumerated(value = EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "varchar(20) default 'USER'")
+    @Column(nullable = false)
     private Role role = Role.USER;
 
     public User(String role, String email, String nickname, String password) {

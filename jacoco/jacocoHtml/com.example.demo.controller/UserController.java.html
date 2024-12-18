@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     private final UserService userService;
 
-<span class="nc" id="L25">    public UserController(UserService userService) {</span>
-<span class="nc" id="L26">        this.userService = userService;</span>
-<span class="nc" id="L27">    }</span>
+<span class="fc" id="L25">    public UserController(UserService userService) {</span>
+<span class="fc" id="L26">        this.userService = userService;</span>
+<span class="fc" id="L27">    }</span>
 
     @PostMapping
     public ResponseEntity&lt;UserResponseDto&gt; signupWithEmail(@RequestBody UserRequestDto userRequestDto) {
