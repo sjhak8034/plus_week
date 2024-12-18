@@ -42,3 +42,4 @@ out/
 jacoco/
 /jacoco/
 /gradle/
+/.gradle/
