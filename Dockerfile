@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 ARG JAR_FILE=build/libs/app.jar
 COPY ${JAR_FILE} app.jar
 
-
+COPY .env /app/.env
 
 
 # Set default command to run the application
