@@ -1,10 +1,10 @@
 # Base image: Use OpenJDK for Java projects
 FROM openjdk:17-jdk-slim
 
-
+RUN ls -al build/libs/
 ARG JAR_FILE=build/libs/app.jar
 COPY ${JAR_FILE} app.jar
-RUN ls -al build/libs/
+
 
 
 # Set default command to run the application
