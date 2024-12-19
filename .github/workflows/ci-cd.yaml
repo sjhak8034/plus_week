@@ -50,4 +50,4 @@ jobs:
         run: |
           echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
           docker build -t jhsong8034/tutorial:latest .
-          docker push your-jhsong8034/tutorial:latest
+          docker push jhsong8034/tutorial:latest
