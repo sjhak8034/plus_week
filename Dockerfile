@@ -5,8 +5,8 @@ FROM openjdk:17-jdk-slim
 ARG JAR_FILE=build/libs/app.jar
 COPY ${JAR_FILE} app.jar
 
-COPY .env /app/.env
-
+ARG JAR_FILE=.env
+COPY ${JAR_FILE} .env
 
 # Set default command to run the application
 ENTRYPOINT ["java","-jar","/app.jar"]
