@@ -38,6 +38,8 @@ jobs:
         run:  echo "${{ secrets.ENV }}" >> .env
 
       - name: Build and Test with Gradle
+        run: ./gradlew build
+      - name: Build and Test with Gradle
         run: ./gradlew bootJar
 
       # 5. 도커 이미지 빌드 및 푸시 (선택사항)
