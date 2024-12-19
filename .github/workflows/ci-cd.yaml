@@ -48,5 +48,5 @@ jobs:
           DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
         run: |
           echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-          docker build -t your-dockerhub-username/your-app-name:latest .
-          docker push your-dockerhub-username/your-app-name:latest
+          docker build -t jhsong8034/tutorial:latest .
+          docker push your-jhsong8034/tutorial:latest
