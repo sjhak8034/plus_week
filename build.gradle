@@ -53,6 +53,11 @@ tasks.named('test') {
     useJUnitPlatform()
     finalizedBy jacocoTestReport
 }
+
+tasks.named('bootJar') {
+    archiveFileName = 'app.jar'
+}
+
 jacocoTestReport {
     reports {
         html.required = true
