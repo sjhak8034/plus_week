@@ -7,5 +7,6 @@ COPY ${JAR_FILE} app.jar
 
 
 
+
 # Set default command to run the application
 ENTRYPOINT ["java","-jar","/app.jar"]
