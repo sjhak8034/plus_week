@@ -82,7 +82,8 @@ jobs:
           DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
           #          port: ${{ secrets.AWS_SSH_PORT }} #
           script: |
-            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+            docker login --username=$DOCKER_USER --password=$DOCKER_PASS $DOCKER_HOST
+            
             sudo docker rm -f server || echo "No such container: server"
             sudo docker pull "${{secrets.DOCKER_HUB_REPOSITORY}}"
             sudo docker run -d --name server -e TZ=Asia/Seoul -p 8080:8080 ${{secrets.DOCKER_IMAGE_NAME}}
