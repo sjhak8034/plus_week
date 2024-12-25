@@ -37,8 +37,8 @@ out/
 .vscode/
 
 ### env ###
-.env
+../trello/.env
 
 jacoco/
-
+.env
 

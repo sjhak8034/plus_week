@@ -39,6 +39,9 @@ public class User {
     public void updateStatusToBlocked() {
         this.status = UserStatus.BLOCKED;
     }
-
+    @Transient
+    public void setId(Long id) {
+        this.id = id;
+    }
 
 }

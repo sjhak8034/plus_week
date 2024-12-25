@@ -75,6 +75,7 @@ public class ReservationService {
         return reservationRepository.findByUserIdAndItemId(userId, itemId);
     }
 
+
     private List<ReservationResponseDto> convertToDto(List<Reservation> reservations) {
         return reservations.stream()
                 .map(reservation -> new ReservationResponseDto(
@@ -100,7 +101,8 @@ public class ReservationService {
 
     private void checkValidChange(ReservationStatus newStatus, ReservationStatus oldStatus) {
         switch (newStatus) {
-            case APPROVED:
+            case EXPIRED:
+            case APPROVED :
                 if (!ReservationStatus.PENDING.equals(oldStatus)) {
                     throw new IllegalArgumentException("PENDING 상태만 APPROVED로 변경 가능합니다.");
                 }
@@ -108,11 +110,6 @@ public class ReservationService {
             case CANCELED:
                 if (ReservationStatus.EXPIRED.equals(oldStatus)) {
                     throw new IllegalArgumentException("EXPIRED 상태인 예약은 취소할 수 없습니다.");
-                }
-                return;
-            case EXPIRED:
-                if (!ReservationStatus.PENDING.equals(oldStatus)) {
-                    throw new IllegalArgumentException("PENDING 상태만 EXPIRED로 변경 가능합니다.");
                 }
                 return;
             default:

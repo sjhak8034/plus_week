@@ -20,10 +20,8 @@ public class AdminService {
     // TODO: 4. find or save 예제 개선
     @Transactional
     public ReportResponseDto reportUsers(List<Long> userIds) {
-        List<User> users = userRepository.findAllById(userIds);
-        for(User user : users) {
-            user.updateStatusToBlocked();
-        }
-        return new ReportResponseDto(users.stream().map(User::getId).toList());
+        userRepository.updateStatusInIds(userIds);
+        return new ReportResponseDto(userIds);
+
     }
 }

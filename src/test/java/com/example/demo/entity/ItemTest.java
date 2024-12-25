@@ -28,8 +28,6 @@ class ItemTest {
     @Rollback(true)
     void statusNullTest() throws NoSuchFieldException, IllegalAccessException, InterruptedException, ChangeSetPersister.NotFoundException {
         //given
-        String name = "name";
-        String description = "description";
         User manager = new User("user","email","user","asdf" );
         User owner = new User("user","email","user","asdf" );
         Item item = new Item("item","description",manager, owner);

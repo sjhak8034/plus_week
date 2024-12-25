@@ -2,12 +2,14 @@ package com.example.demo.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Getter
+@EqualsAndHashCode
 public class ReservationResponseDto {
     private Long id;
     private String nickname;

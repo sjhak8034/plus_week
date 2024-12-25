@@ -1,9 +1,11 @@
 package com.example.demo.dto;
 
 import com.example.demo.entity.Role;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @Getter
+@EqualsAndHashCode
 public class Authentication {
 
     private final Long id;

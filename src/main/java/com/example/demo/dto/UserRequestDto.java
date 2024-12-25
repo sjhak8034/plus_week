@@ -3,6 +3,8 @@ package com.example.demo.dto;
 import com.example.demo.entity.User;
 import lombok.Getter;
 
+import java.util.Objects;
+
 @Getter
 public class UserRequestDto {
     private String email;
@@ -29,4 +31,5 @@ public class UserRequestDto {
     public void updatePassword(String encryptedPassword) {
         this.password = encryptedPassword;
     }
+
 }

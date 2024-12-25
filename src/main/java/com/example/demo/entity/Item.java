@@ -41,6 +41,9 @@ public class Item {
     public void approve(){
         this.status = ItemStatus.APPROVED;
     }
-
+    @Transient
+    public void setId(Long id) {
+        this.id = id;
+    }
     public Item() {}
 }

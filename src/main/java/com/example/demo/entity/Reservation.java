@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -42,7 +43,18 @@ public class Reservation {
 
     public Reservation() {}
 
+    @Transient
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void updateStatus(ReservationStatus status) {
         this.status = status;
     }
+
+    @Transient
+    public void setStatus(ReservationStatus status){
+        this.status = status;
+    }
+
 }

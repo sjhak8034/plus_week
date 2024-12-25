@@ -35,7 +35,7 @@ jobs:
 
       # 4. Gradle 빌드 및 테스트
       - name: create env
-        run:  echo "${{ secrets.ENV }}" >> .env
+        run: echo "${{ secrets.ENV }}" >> .env
 
       - name: Build and Test with Gradle
         run: ./gradlew bootJar
@@ -49,5 +49,31 @@ jobs:
           DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
         run: |
           echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-          docker build -t jhsong8034/tutorial:latest .
-          docker push jhsong8034/tutorial:latest
+          docker build 
+          --build-arg MYSQL_ID="${{env.DATABASE_URL}}" 
+          --build-arg MYSQL_PASSWORD="${{env.DATABASE_ID}}" 
+          --build-arg MYSQL_PASSWORD="${{env.DATABASE_PASSWORD}}" 
+          -t "${{DOCKER_HUB_REPOSITORY}}" .
+          docker push "${{DOCKER_HUB_REPOSITORY}}"
+
+      # 6. AWS 인증
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+      # 7. AWS 배포
+      - name: SSH Connection and Deploy to Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.AWS_SSH_HOST }}  # ipv4
+          username: ${{ secrets.AWS_SSH_USERNAME }} # ubuntu
+          key: ${{ secrets.AWS_SSH_KEY }} #
+          #          port: ${{ secrets.AWS_SSH_PORT }} #
+          script: |
+            sudo docker rm -f server
+            sudo docker pull "${{DOCKER_HUB_REPOSITORY}}"
+            sudo docker tag "${{DOCKER_HUB_REPOSITORY}}" "${{DOCKER_IMAGE_NAME}}"
+            sudo docker run -d --name server -e TZ=Asia/Seoul -p 8080:8080 ${{DOCKER_IMAGE_NAME}}
