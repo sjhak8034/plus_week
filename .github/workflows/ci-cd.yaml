@@ -50,9 +50,9 @@ jobs:
         run: |
           echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
           docker build 
-          --build-arg DATABASE_URL="${{env.DATABASE_URL}}" 
-          --build-arg DATABASE_ID="${{env.DATABASE_ID}}" 
-          --build-arg DATABASE_PASSWORD="${{env.DATABASE_PASSWORD}}" 
+          --build-arg DATABASE_URL="${{secrets.DATABASE_URL}}" \
+          --build-arg DATABASE_ID="${{secrets.DATABASE_ID}}" \
+          --build-arg DATABASE_PASSWORD="${{secrets.DATABASE_PASSWORD}}" \
           -t "${{secrets.DOCKER_HUB_REPOSITORY}}" .
           docker push "${{secrets.DOCKER_HUB_REPOSITORY}}"
 
