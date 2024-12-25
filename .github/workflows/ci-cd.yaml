@@ -75,5 +75,5 @@ jobs:
           script: |
             sudo docker rm -f server
             sudo docker pull "${{secrets.DOCKER_HUB_REPOSITORY}}"
-            sudo docker tag "${{secrets.DOCKER_HUB_REPOSITORY}}" "${{DOCKER_IMAGE_NAME}}"
+            sudo docker tag "${{secrets.DOCKER_HUB_REPOSITORY}}" "${{secrets.DOCKER_IMAGE_NAME}}"
             sudo docker run -d --name server -e TZ=Asia/Seoul -p 8080:8080 ${{DOCKER_IMAGE_NAME}}
