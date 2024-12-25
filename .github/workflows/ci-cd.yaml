@@ -68,6 +68,8 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-2
+          DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
 
       # 7. AWS 배포
       - name: SSH Connection and Deploy to Server
@@ -76,8 +78,11 @@ jobs:
           host: ${{ secrets.AWS_SSH_HOST }}  # ipv4
           username: ${{ secrets.AWS_SSH_USERNAME }} # ubuntu
           key: ${{ secrets.AWS_SSH_KEY }} #
+          DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
           #          port: ${{ secrets.AWS_SSH_PORT }} #
           script: |
+            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
             sudo docker rm -f server
             sudo docker pull "${{secrets.DOCKER_HUB_REPOSITORY}}"
             sudo docker run -d --name server -e TZ=Asia/Seoul -p 8080:8080 ${{secrets.DOCKER_IMAGE_NAME}}
