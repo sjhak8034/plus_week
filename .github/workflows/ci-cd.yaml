@@ -47,14 +47,19 @@ jobs:
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_ID: ${{ secrets.DATABASE_ID }}
+          DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          DOCKER_HUB_REPOSITORY: ${{ secrets.DOCKER_HUB_REPOSITORY }}
         run: |
           echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-          docker build 
-          --build-arg DATABASE_URL="${{secrets.DATABASE_URL}}" \
-          --build-arg DATABASE_ID="${{secrets.DATABASE_ID}}" \
-          --build-arg DATABASE_PASSWORD="${{secrets.DATABASE_PASSWORD}}" \
-          -t "${{secrets.DOCKER_HUB_REPOSITORY}}" .
-          docker push "${{secrets.DOCKER_HUB_REPOSITORY}}"
+          docker build \
+            --build-arg DATABASE_URL="$DATABASE_URL" \
+            --build-arg DATABASE_ID="$DATABASE_ID" \
+            --build-arg DATABASE_PASSWORD="$DATABASE_PASSWORD" \
+            -t "$DOCKER_HUB_REPOSITORY" .
+          docker push "$DOCKER_HUB_REPOSITORY"
+      
 
       # 6. AWS 인증
       - name: Configure AWS credentials
