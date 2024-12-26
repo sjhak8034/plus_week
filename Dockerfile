@@ -2,14 +2,7 @@
 FROM openjdk:17-jdk-slim
 
 
-ARG DATABASE_ID
-ARG DATABASE_PASSWORD
-ARG ADMIN_EMAIL
 
-# ⭐ 'ENV' 예약어를 통해 전달받은 값을 실제 값과 매칭시켜야 한다.
-ENV DATABASE_URL=""
-ENV DATABASE_ID=""
-ENV DATABASE_PASSWORD=""
 # (2) COPY에서 사용될 경로 변수
 ARG JAR_FILE=build/libs/app.jar
 
