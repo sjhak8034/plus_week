@@ -75,12 +75,12 @@ jobs:
       - name: SSH Connection and Deploy to Server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.AWS_SSH_HOST }}  # ipv4
-          username: ${{ secrets.AWS_SSH_USERNAME }} # ubuntu
-          key: ${{ secrets.AWS_SSH_KEY }} #
+          host: ${{ secrets.AWS_SSH_HOST }}
+          username: ${{ secrets.AWS_SSH_USERNAME }}
+          key: ${{ secrets.AWS_SSH_KEY }}
           DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
-          #          port: ${{ secrets.AWS_SSH_PORT }} #
+
           script: |
             echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
             sudo docker rm -f server 
