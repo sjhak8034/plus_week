@@ -83,7 +83,7 @@ jobs:
           DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
 
           script: |
-            echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+            echo "$DOCKER_PASS" | sudo docker login -u "$DOCKER_USER" --password-stdin
             sudo docker rm -f server 
             sudo docker pull "${{secrets.DOCKER_HUB_REPOSITORY}}"
             sudo docker tag "${{secrets.DOCKER_HUB_REPOSITORY}}" tutorial
