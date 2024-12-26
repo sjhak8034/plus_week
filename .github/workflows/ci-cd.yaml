@@ -87,4 +87,11 @@ jobs:
             sudo docker rm -f server 
             sudo docker pull "${{secrets.DOCKER_HUB_REPOSITORY}}"
             sudo docker tag "${{secrets.DOCKER_HUB_REPOSITORY}}" tutorial
-            sudo docker run -d --name server -e TZ=Asia/Seoul -p 8080:8080 tutorial
+            sudo docker run -d \
+              --name server \
+              -e TZ=Asia/Seoul \
+              -e DATABASE_URL="${{secrets.DATABASE_URL}}" \
+              -e DATABASE_ID="${{secrets.DATABASE_ID}}" \
+              -e DATABASE_PASSWORD="${{secrets.DATABASE_PASSWORD}}" \
+              -p 8080:8080 tutorial
+          

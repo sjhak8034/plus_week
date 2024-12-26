@@ -1,5 +1,5 @@
 ### make admin
-POST http://ec2-44-211-141-234.compute-1.amazonaws.com:8080/users
+POST http://44.211.141.234:8080/users
 Content-Type: application/json
 
 {
