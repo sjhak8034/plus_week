@@ -59,7 +59,7 @@ jobs:
             --build-arg DATABASE_PASSWORD="$DATABASE_PASSWORD" \
             -t "$DOCKER_HUB_REPOSITORY" .
           docker push "$DOCKER_HUB_REPOSITORY"
-            - name: Debug Environment Variables
+      
 
       # 6. AWS 인증
       - name: Configure AWS credentials
