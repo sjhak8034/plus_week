@@ -95,6 +95,6 @@ jobs:
               -e TZ=Asia/Seoul \
               -e DATABASE_URL=${{ secrets.DATABASE_URL }} \
               -e DATABASE_USERNAME=${{ secrets.DATABASE_ID }} \
-              -e DATABASE_PASSWORD=${{ secrets.DOCKER_PASSWORD }} \
+              -e DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} \
               -p 8080:8080 tutorial
           
