@@ -9,7 +9,8 @@ ARG ADMIN_EMAIL
 # ⭐ 'ENV' 예약어를 통해 전달받은 값을 실제 값과 매칭시켜야 한다.
 ENV DATABASE_ID=${DATABASE_ID} \
     DATABASE_PASSWORD=${DATABASE_PASSWORD} \
-    ADMIN_EMAIL=${ADMIN_EMAIL}
+    DATABASE_URL=${DATABASE_URL} \
+
 
 # (2) COPY에서 사용될 경로 변수
 ARG JAR_FILE=build/libs/app.jar

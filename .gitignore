@@ -41,4 +41,5 @@ out/
 
 jacoco/
 .env
+TEST_API.http
 
