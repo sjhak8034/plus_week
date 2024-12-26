@@ -85,4 +85,5 @@ jobs:
             echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
             sudo docker rm -f server 
             sudo docker pull "${{secrets.DOCKER_HUB_REPOSITORY}}"
+            sudo docker tag "${{secrets.DOCKER_HUB_REPOSITORY}}" tutorial
             sudo docker run -d --name server -e TZ=Asia/Seoul -p 8080:8080 tutorial
