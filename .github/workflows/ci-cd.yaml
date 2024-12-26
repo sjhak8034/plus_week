@@ -82,7 +82,7 @@ jobs:
           DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          DATABASE_ID: ${{ secrets.DATABASE_ID }}
+          DATABASE_USERNAME: ${{ secrets.DATABASE_ID }}
           DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
 
           script: |
@@ -94,7 +94,7 @@ jobs:
               --name server \
               -e TZ=Asia/Seoul \
               -e DATABASE_URL=${{ secrets.DATABASE_URL }} \
-              -e DATABASE_ID=${{ secrets.DATABASE_ID }} \
+              -e DATABASE_USERNAME=${{ secrets.DATABASE_ID }} \
               -e DATABASE_PASSWORD=${{ secrets.DOCKER_PASSWORD }} \
               -p 8080:8080 tutorial
           
